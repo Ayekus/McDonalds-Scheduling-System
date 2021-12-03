@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "mcdonalds-scheduling-system": {
+      "hosting": {
+        "angular-scheduling-system": [
+          "mcdonalds-scheduling-system"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "mcdonalds-scheduling-system"
+  }
+}
