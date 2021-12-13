@@ -1,1 +1,10 @@
-<p>sign-up works!</p>
+<p>Sign Up</p>
+<form [formGroup]="signupForm" (ngSubmit)="signupUser()">
+  <input type="text" id="email" placeholder="Email Address" formControlName="email" />
+  <p *ngIf="form['email'].invalid && form['email'].touched">Error in email field</p>
+  <br />
+  <input type="password" id="password" placeholder="Password" formControlName="password" />
+  <p *ngIf="form['password'].invalid && form['password'].touched">Error in password field</p>
+  <br />
+  <button type="submit">Register</button>
+</form>
