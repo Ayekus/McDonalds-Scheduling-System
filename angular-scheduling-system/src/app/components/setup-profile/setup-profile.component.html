@@ -1,20 +1,20 @@
 <p>Setup Profile</p>
 <form [formGroup]="setupProfileForm" (ngSubmit)="setupUser()">
-  <input type="text" id="firstName" placeholder="First Name" />
-  <p *ngIf="form['firstName'].touched">Error in first name field</p>
+  <input type="text" id="firstName" placeholder="First Name" formControlName="firstName" />
+  <p *ngIf="form['firstName'].invalid && form['firstName'].touched">Error in first name field</p>
   <br />
-  <input type="text" id="lastName" placeholder="Last Name" />
-  <p *ngIf="form['lastName'].touched">Error in last name field</p>
+  <input type="text" id="lastName" placeholder="Last Name" formControlName="lastName" />
+  <p *ngIf="form['lastName'].invalid && form['lastName'].touched">Error in last name field</p>
   <br />
-  <input type="text" id="employeeID" placeholder="Employee ID" />
+  <input type="text" id="employeeID" placeholder="Employee ID" formControlName="employeeID" />
   <p *ngIf="form['employeeID'].invalid && form['employeeID'].touched">Error in employee ID field</p>
   <br />
 
-  <input type="checkbox" id="trainingBEV" name="trainingBEV" value="BEV" />
+  <input type="checkbox" id="trainingBEV" name="trainingBEV" value="BEV" formControlName="trainingBEV" />
   <label for="vehicle1"> BEV </label><br />
-  <input type="checkbox" id="trainingFC" name="trainingFC" value="FC" />
+  <input type="checkbox" id="trainingFC" name="trainingFC" value="FC" formControlName="trainingFC" />
   <label for="vehicle2"> FC </label><br />
-  <input type="checkbox" id="trainingBK" name="trainingBK" value="BK" />
+  <input type="checkbox" id="trainingBK" name="trainingBK" value="BK" formControlName="trainingBK" />
   <label for="trainingBK"> BK </label>
 
   <br />

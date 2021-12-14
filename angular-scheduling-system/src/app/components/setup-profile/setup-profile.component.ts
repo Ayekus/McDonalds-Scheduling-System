@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-setup-profile',
@@ -8,12 +9,12 @@ import { Router } from '@angular/router';
   styleUrls: ['./setup-profile.component.css'],
 })
 export class SetupProfileComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, public afFirestore: AngularFirestore) {}
 
   setupProfileForm = new FormGroup({
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
-    employeeID: new FormControl('', [Validators.required, Validators.pattern(/^-?(0|[1-9]\d*)?$/)]),
+    employeeID: new FormControl('', Validators.required),
     trainingBEV: new FormControl(''),
     trainingFC: new FormControl(''),
     trainingBK: new FormControl(''),
@@ -48,12 +49,30 @@ export class SetupProfileComponent implements OnInit {
       console.log(this.form['trainingBK']);
       console.log(this.form['trainingBK'].value);
 
-      // const email = this.form['email'].value;
-      // const password = this.form['password'].value;
+      const firstName = this.form['firstName'].value;
+      const lastName = this.form['lastName'].value;
+      const employeeID = this.form['employeeID'].value;
+      const trainingBEV = this.form['trainingBEV'].value;
+      const trainingFC = this.form['trainingFC'].value;
+      const trainingBK = this.form['trainingBK'].value;
 
-      // await this.afAuth.createUserWithEmailAndPassword(email, password).then((res: any) => {
-      //   this.router.navigate(['/dashboard']);
-      // });
+      if (localStorage.getItem('user')) {
+        let userInfo: any = localStorage.getItem('user');
+
+        const user: any = JSON.parse(userInfo);
+
+        console.log('uid: ', user.uid);
+
+        this.afFirestore.collection('usersCollection').add({
+          uid: user.uid,
+          firstName: firstName,
+          lastName: lastName,
+          employeeID: employeeID,
+          trainingBEV: trainingBEV,
+          trainingFC: trainingFC,
+          trainingBK: trainingBK,
+        });
+      }
     }
   }
 
