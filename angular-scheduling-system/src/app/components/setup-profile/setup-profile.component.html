@@ -1,0 +1,22 @@
+<p>Setup Profile</p>
+<form [formGroup]="setupProfileForm" (ngSubmit)="setupUser()">
+  <input type="text" id="firstName" placeholder="First Name" />
+  <p *ngIf="form['firstName'].touched">Error in first name field</p>
+  <br />
+  <input type="text" id="lastName" placeholder="Last Name" />
+  <p *ngIf="form['lastName'].touched">Error in last name field</p>
+  <br />
+  <input type="text" id="employeeID" placeholder="Employee ID" />
+  <p *ngIf="form['employeeID'].invalid && form['employeeID'].touched">Error in employee ID field</p>
+  <br />
+
+  <input type="checkbox" id="trainingBEV" name="trainingBEV" value="BEV" />
+  <label for="vehicle1"> BEV </label><br />
+  <input type="checkbox" id="trainingFC" name="trainingFC" value="FC" />
+  <label for="vehicle2"> FC </label><br />
+  <input type="checkbox" id="trainingBK" name="trainingBK" value="BK" />
+  <label for="trainingBK"> BK </label>
+
+  <br />
+  <button type="submit">Set Up Profile</button>
+</form>
