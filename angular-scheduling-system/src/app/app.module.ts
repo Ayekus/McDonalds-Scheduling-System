@@ -19,6 +19,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { SetupProfileComponent } from './components/setup-profile/setup-profile.component';
+import { UpdateAvailabilityComponent } from './components/update-availability/update-availability.component';
 
 @NgModule({
   declarations: [
@@ -29,6 +30,7 @@ import { SetupProfileComponent } from './components/setup-profile/setup-profile.
     ForgotPasswordComponent,
     VerifyEmailComponent,
     SetupProfileComponent,
+    UpdateAvailabilityComponent,
   ],
   imports: [
     BrowserModule,

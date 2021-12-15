@@ -10,11 +10,11 @@
   <p *ngIf="form['employeeID'].invalid && form['employeeID'].touched">Error in employee ID field</p>
   <br />
 
-  <input type="checkbox" id="trainingBEV" name="trainingBEV" value="BEV" formControlName="trainingBEV" />
-  <label for="vehicle1"> BEV </label><br />
-  <input type="checkbox" id="trainingFC" name="trainingFC" value="FC" formControlName="trainingFC" />
-  <label for="vehicle2"> FC </label><br />
-  <input type="checkbox" id="trainingBK" name="trainingBK" value="BK" formControlName="trainingBK" />
+  <input type="radio" value="BEV" formControlName="training" />
+  <label for="trainingBEV"> BEV </label><br />
+  <input type="radio" value="FC" formControlName="training" />
+  <label for="trainingFC"> FC </label><br />
+  <input type="radio" value="BK" formControlName="training" />
   <label for="trainingBK"> BK </label>
 
   <br />

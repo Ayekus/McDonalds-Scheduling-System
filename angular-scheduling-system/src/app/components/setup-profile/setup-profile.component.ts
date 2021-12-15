@@ -15,9 +15,7 @@ export class SetupProfileComponent implements OnInit {
     firstName: new FormControl('', Validators.required),
     lastName: new FormControl('', Validators.required),
     employeeID: new FormControl('', Validators.required),
-    trainingBEV: new FormControl(''),
-    trainingFC: new FormControl(''),
-    trainingBK: new FormControl(''),
+    training: new FormControl(''),
   });
 
   ngOnInit(): void {}
@@ -27,9 +25,7 @@ export class SetupProfileComponent implements OnInit {
       this.form['firstName'].valid &&
       this.form['lastName'].valid &&
       this.form['employeeID'].valid &&
-      this.form['trainingBEV'].valid &&
-      this.form['trainingFC'].valid &&
-      this.form['trainingBK'].valid
+      this.form['training'].valid
     ) {
       console.log(this.form['firstName']);
       console.log(this.form['firstName'].value);
@@ -40,21 +36,13 @@ export class SetupProfileComponent implements OnInit {
       console.log(this.form['employeeID']);
       console.log(this.form['employeeID'].value);
 
-      console.log(this.form['trainingBEV']);
-      console.log(this.form['trainingBEV'].value);
-
-      console.log(this.form['trainingFC']);
-      console.log(this.form['trainingFC'].value);
-
-      console.log(this.form['trainingBK']);
-      console.log(this.form['trainingBK'].value);
+      console.log(this.form['training']);
+      console.log(this.form['training'].value);
 
       const firstName = this.form['firstName'].value;
       const lastName = this.form['lastName'].value;
       const employeeID = this.form['employeeID'].value;
-      const trainingBEV = this.form['trainingBEV'].value;
-      const trainingFC = this.form['trainingFC'].value;
-      const trainingBK = this.form['trainingBK'].value;
+      const training = this.form['training'].value;
 
       if (localStorage.getItem('user')) {
         let userInfo: any = localStorage.getItem('user');
@@ -63,15 +51,19 @@ export class SetupProfileComponent implements OnInit {
 
         console.log('uid: ', user.uid);
 
-        this.afFirestore.collection('usersCollection').add({
-          uid: user.uid,
-          firstName: firstName,
-          lastName: lastName,
-          employeeID: employeeID,
-          trainingBEV: trainingBEV,
-          trainingFC: trainingFC,
-          trainingBK: trainingBK,
-        });
+        this.afFirestore
+          .collection('usersCollection')
+          .add({
+            uid: user.uid,
+            firstName: firstName,
+            lastName: lastName,
+            employeeID: employeeID,
+            training: training,
+            isManager: false,
+          })
+          .then((res: any) => {
+            this.router.navigate(['/update-availability']);
+          });
       }
     }
   }
