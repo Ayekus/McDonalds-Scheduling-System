@@ -60,6 +60,7 @@ export class SetupProfileComponent implements OnInit {
             employeeID: employeeID,
             training: training,
             isManager: false,
+            availability: { monday: '0', tuesday: '1', wednesday: '2' },
           })
           .then((res: any) => {
             this.router.navigate(['/update-availability']);

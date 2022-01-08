@@ -1,1 +1,60 @@
-<p>update-availability works!</p>
+<p>Set Availability</p>
+<br />
+<p>Monday</p>
+<form [formGroup]="mondayForm">
+  <ng-container *ngFor="let shift of shifts">
+    <input type="radio" [value]="shift" formControlName="selectedTime" />
+    <label for="selectedTime"> {{ shift }} </label><br />
+  </ng-container>
+</form>
+<br /><br />
+<p>Tuesday</p>
+<form [formGroup]="tuesdayForm">
+  <ng-container *ngFor="let shift of shifts">
+    <input type="radio" [value]="shift" formControlName="selectedTime" />
+    <label for="selectedTime"> {{ shift }} </label><br />
+  </ng-container>
+</form>
+<br /><br />
+<p>Wednesday</p>
+<form [formGroup]="wednesdayForm">
+  <ng-container *ngFor="let shift of shifts">
+    <input type="radio" [value]="shift" formControlName="selectedTime" />
+    <label for="selectedTime"> {{ shift }} </label><br />
+  </ng-container>
+</form>
+<br /><br />
+<p>Thursday</p>
+<form [formGroup]="thursdayForm">
+  <ng-container *ngFor="let shift of shifts">
+    <input type="radio" [value]="shift" formControlName="selectedTime" />
+    <label for="selectedTime"> {{ shift }} </label><br />
+  </ng-container>
+</form>
+<br /><br />
+<p>Friday</p>
+<form [formGroup]="fridayForm">
+  <ng-container *ngFor="let shift of shifts">
+    <input type="radio" [value]="shift" formControlName="selectedTime" />
+    <label for="selectedTime"> {{ shift }} </label><br />
+  </ng-container>
+</form>
+<br /><br />
+<p>Saturday</p>
+<form [formGroup]="saturdayForm">
+  <ng-container *ngFor="let shift of shifts">
+    <input type="radio" [value]="shift" formControlName="selectedTime" />
+    <label for="selectedTime"> {{ shift }} </label><br />
+  </ng-container>
+</form>
+<br /><br />
+<p>Sunday</p>
+<form [formGroup]="sundayForm">
+  <ng-container *ngFor="let shift of shifts">
+    <input type="radio" [value]="shift" formControlName="selectedTime" />
+    <label for="selectedTime"> {{ shift }} </label><br />
+  </ng-container>
+</form>
+
+<br />
+<button type="submit" (click)="setAvailability()">Set Availability</button>
