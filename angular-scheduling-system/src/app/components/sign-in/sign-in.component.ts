@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';
 import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-sign-in',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./sign-in.component.css'],
 })
 export class SignInComponent implements OnInit {
-  constructor(public afAuth: AngularFireAuth, private router: Router) {}
+  constructor(public afAuth: AngularFireAuth, private router: Router, public afFirestore: AngularFirestore) {}
 
   signInForm = new FormGroup({
     email: new FormControl('', Validators.required),
@@ -29,6 +30,15 @@ export class SignInComponent implements OnInit {
       await this.afAuth.signInWithEmailAndPassword(email, password).then((res: any) => {
         console.log(res);
         localStorage.setItem('user', JSON.stringify(res.user));
+        this.afFirestore
+          .collection('usersCollection')
+          .doc(res.user.uid)
+          .ref.get()
+          .then((doc) => {
+            console.log(doc.data());
+            localStorage.setItem('userProfile', JSON.stringify(doc.data()));
+          });
+
         this.router.navigate(['/dashboard']);
       });
     }

@@ -20,6 +20,7 @@ import { AngularFireModule } from '@angular/fire/compat';
 import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { SetupProfileComponent } from './components/setup-profile/setup-profile.component';
 import { UpdateAvailabilityComponent } from './components/update-availability/update-availability.component';
+import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { UpdateAvailabilityComponent } from './components/update-availability/up
     VerifyEmailComponent,
     SetupProfileComponent,
     UpdateAvailabilityComponent,
+    EmployeeDashboardComponent,
   ],
   imports: [
     BrowserModule,
