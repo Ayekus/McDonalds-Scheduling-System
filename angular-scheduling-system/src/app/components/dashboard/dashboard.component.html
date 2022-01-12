@@ -1,1 +1,13 @@
 <p>Manager Dashboard</p>
+
+<input
+  type="text"
+  ngxDaterangepickerMd
+  [isInvalidDate]="isInvalidDate"
+  [locale]="locale"
+  [(ngModel)]="selected"
+  [singleDatePicker]="true"
+  [autoApply]="true"
+/>
+
+<button type="submit" (click)="refreshData()">Test</button>

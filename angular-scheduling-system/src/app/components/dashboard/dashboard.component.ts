@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AbstractControl, FormGroup, FormControl, Validators } from '@angular/forms';
+import * as moment from 'moment';
 
 @Component({
   selector: 'app-dashboard',
@@ -8,6 +10,15 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
   constructor(private router: Router) {}
+
+  selected: any;
+  locale: any = {
+    applyLabel: 'Appliquer',
+    customRangeLabel: ' - ',
+    daysOfWeek: moment.weekdaysMin(),
+    monthNames: moment.monthsShort(),
+    firstDay: moment.localeData().firstDayOfWeek(),
+  };
 
   userProfile: any;
 
@@ -20,5 +31,12 @@ export class DashboardComponent implements OnInit {
     } else {
       this.router.navigate(['/sign-in']);
     }
+  }
+
+  isInvalidDate(date: any) {
+    return date.weekday() === 0;
+  }
+  refreshData() {
+    console.log(this.selected);
   }
 }
