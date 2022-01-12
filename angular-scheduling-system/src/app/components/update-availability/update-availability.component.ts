@@ -47,6 +47,10 @@ export class UpdateAvailabilityComponent implements OnInit {
   }
 
   setAvailability() {
+    var user: any = localStorage.getItem('user');
+    user = JSON.parse(user);
+    console.log(user);
+
     console.log('m', this.monday['selectedTime'].value);
     console.log('t', this.tuesday['selectedTime'].value);
     console.log('w', this.wednesday['selectedTime'].value);
@@ -54,6 +58,21 @@ export class UpdateAvailabilityComponent implements OnInit {
     console.log('f', this.friday['selectedTime'].value);
     console.log('s', this.saturday['selectedTime'].value);
     console.log('su', this.sunday['selectedTime'].value);
+
+    this.afFirestore
+      .collection('usersCollection')
+      .doc(user.uid)
+      .update({
+        availability: {
+          monday: this.monday['selectedTime'].value,
+          tuesday: this.tuesday['selectedTime'].value,
+          wednesday: this.wednesday['selectedTime'].value,
+          thursday: this.thursday['selectedTime'].value,
+          friday: this.friday['selectedTime'].value,
+          saturday: this.saturday['selectedTime'].value,
+          sunday: this.sunday['selectedTime'].value,
+        },
+      });
   }
 
   //convenience getter for easy access to form fields

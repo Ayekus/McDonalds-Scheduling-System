@@ -53,7 +53,8 @@ export class SetupProfileComponent implements OnInit {
 
         this.afFirestore
           .collection('usersCollection')
-          .add({
+          .doc(user.uid)
+          .set({
             uid: user.uid,
             firstName: firstName,
             lastName: lastName,

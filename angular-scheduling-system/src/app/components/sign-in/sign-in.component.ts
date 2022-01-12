@@ -28,6 +28,7 @@ export class SignInComponent implements OnInit {
 
       await this.afAuth.signInWithEmailAndPassword(email, password).then((res: any) => {
         console.log(res);
+        localStorage.setItem('user', JSON.stringify(res.user));
         this.router.navigate(['/dashboard']);
       });
     }
