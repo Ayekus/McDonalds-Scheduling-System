@@ -12,6 +12,8 @@ export class DashboardComponent implements OnInit {
   constructor(private router: Router) {}
 
   selected: any;
+  selectedDayOfWeek: any;
+  selectedDate: any;
   locale: any = {
     applyLabel: 'Appliquer',
     customRangeLabel: ' - ',
@@ -36,7 +38,13 @@ export class DashboardComponent implements OnInit {
   isInvalidDate(date: any) {
     return date.weekday() === 0;
   }
+
   refreshData() {
+    this.selectedDayOfWeek = moment(this.selected.startDate).format('dddd');
+    this.selectedDayOfWeek = this.selectedDayOfWeek.toLowerCase();
+    console.log(this.selectedDayOfWeek);
+    this.selectedDate = moment(this.selected.startDate).format('YYYY-MM-DD');
+    console.log(moment(this.selected.startDate).format('YYYY-MM-DD'));
     console.log(this.selected);
   }
 }
