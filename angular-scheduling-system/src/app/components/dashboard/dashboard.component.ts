@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import { AbstractControl, FormGroup, FormControl, Validators } from '@angular/forms';
 import * as moment from 'moment';
+import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
   selector: 'app-dashboard',
@@ -9,7 +10,7 @@ import * as moment from 'moment';
   styleUrls: ['./dashboard.component.css'],
 })
 export class DashboardComponent implements OnInit {
-  constructor(private router: Router) {}
+  constructor(private router: Router, public afFirestore: AngularFirestore) {}
 
   selected: any;
   selectedDayOfWeek: any;
@@ -42,9 +43,14 @@ export class DashboardComponent implements OnInit {
   refreshData() {
     this.selectedDayOfWeek = moment(this.selected.startDate).format('dddd');
     this.selectedDayOfWeek = this.selectedDayOfWeek.toLowerCase();
-    console.log(this.selectedDayOfWeek);
     this.selectedDate = moment(this.selected.startDate).format('YYYY-MM-DD');
-    console.log(moment(this.selected.startDate).format('YYYY-MM-DD'));
-    console.log(this.selected);
+
+    const docRef = this.afFirestore.collection('usersCollection', (ref) => ref.where('training', '==', 'BK'));
+
+    const data = docRef.get().then((dat: any) => {
+      console.log(dat);
+    });
+
+    console.log(data);
   }
 }
