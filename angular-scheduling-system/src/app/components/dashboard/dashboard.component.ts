@@ -131,5 +131,32 @@ export class DashboardComponent implements OnInit {
 
   setSchedule() {
     console.log('set Schedule');
+
+    this.afFirestore
+      .collection('scheduleCollection')
+      .doc(this.selectedDate)
+      .set({
+        BK: {
+          0: this.schedule.BK[0],
+          1: this.schedule.BK[1],
+          2: this.schedule.BK[2],
+          3: this.schedule.BK[3],
+          4: this.schedule.BK[4],
+        },
+        BEV: {
+          0: this.schedule.BEV[0],
+          1: this.schedule.BEV[1],
+          2: this.schedule.BEV[2],
+          3: this.schedule.BEV[3],
+          4: this.schedule.BEV[4],
+        },
+        FC: {
+          0: this.schedule.FC[0],
+          1: this.schedule.FC[1],
+          2: this.schedule.FC[2],
+          3: this.schedule.FC[3],
+          4: this.schedule.FC[4],
+        },
+      });
   }
 }
