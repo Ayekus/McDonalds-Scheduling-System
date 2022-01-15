@@ -25,6 +25,30 @@ export class DashboardComponent implements OnInit {
 
   userProfile: any;
 
+  availability: any = {
+    BK: {
+      0: [],
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+    },
+    BEV: {
+      0: [],
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+    },
+    FC: {
+      0: [],
+      1: [],
+      2: [],
+      3: [],
+      4: [],
+    },
+  };
+
   ngOnInit(): void {
     this.userProfile = localStorage.getItem('userProfile');
     this.userProfile = JSON.parse(this.userProfile);
@@ -45,14 +69,36 @@ export class DashboardComponent implements OnInit {
     this.selectedDayOfWeek = this.selectedDayOfWeek.toLowerCase();
     this.selectedDate = moment(this.selected.startDate).format('YYYY-MM-DD');
 
+    for (let i = 0; i < 5; i++) {
+      var shiftType = 'BK';
+      this.queryFirebase(shiftType, this.selectedDayOfWeek, i);
+      shiftType = 'BEV';
+      this.queryFirebase(shiftType, this.selectedDayOfWeek, i);
+      shiftType = 'FC';
+      this.queryFirebase(shiftType, this.selectedDayOfWeek, i);
+    }
+
+    console.log(this.availability);
+  }
+
+  queryFirebase(training: any, dayOfWeek: any, timeWindow: any) {
     const docRef = this.afFirestore.collection('usersCollection', (ref) =>
-      ref.where('training', '==', 'BK').where('availability.friday', '==', 5),
+      ref.where('training', '==', training).where(`availability.${dayOfWeek}`, '==', timeWindow),
     );
 
     const data = docRef.get().subscribe((dat: any) => {
-      console.log(dat.docs);
-    });
+      //console.log(dat.docs);
 
-    console.log(data);
+      if (dat.docs.length > 0) {
+        var arrayOfElements = [];
+        for (let i = 0; i < dat.docs.length; i++) {
+          arrayOfElements.push(dat.docs[i].data());
+        }
+        console.log(arrayOfElements);
+        this.availability[training][timeWindow] = arrayOfElements;
+      }
+
+      console.log(this.availability);
+    });
   }
 }
