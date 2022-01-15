@@ -114,10 +114,36 @@ export class DashboardComponent implements OnInit {
       },
     };
 
+    this.schedule = {
+      BK: {
+        0: '',
+        1: '',
+        2: '',
+        3: '',
+        4: '',
+      },
+      BEV: {
+        0: '',
+        1: '',
+        2: '',
+        3: '',
+        4: '',
+      },
+      FC: {
+        0: '',
+        1: '',
+        2: '',
+        3: '',
+        4: '',
+      },
+    };
+
     this.dateTouched = true;
     this.selectedDayOfWeek = moment(this.selected.startDate).format('dddd');
     this.selectedDayOfWeek = this.selectedDayOfWeek.toLowerCase();
     this.selectedDate = moment(this.selected.startDate).format('YYYY-MM-DD');
+
+    this.loadSchedule(this.selectedDate);
 
     for (let i = 0; i < 5; i++) {
       var shiftType = 'BK';
@@ -150,6 +176,20 @@ export class DashboardComponent implements OnInit {
 
       console.log(this.availability);
     });
+  }
+
+  loadSchedule(date: any) {
+    this.afFirestore
+      .collection('scheduleCollection')
+      .doc(date)
+      .ref.get()
+      .then((doc) => {
+        console.log(doc);
+        console.log(doc.data());
+        if (doc.data()) {
+          this.schedule = doc.data();
+        }
+      });
   }
 
   setSchedule() {
