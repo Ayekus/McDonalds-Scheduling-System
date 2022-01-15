@@ -45,10 +45,12 @@ export class DashboardComponent implements OnInit {
     this.selectedDayOfWeek = this.selectedDayOfWeek.toLowerCase();
     this.selectedDate = moment(this.selected.startDate).format('YYYY-MM-DD');
 
-    const docRef = this.afFirestore.collection('usersCollection', (ref) => ref.where('training', '==', 'BK'));
+    const docRef = this.afFirestore.collection('usersCollection', (ref) =>
+      ref.where('training', '==', 'BK').where('availability.friday', '==', 5),
+    );
 
-    const data = docRef.get().then((dat: any) => {
-      console.log(dat);
+    const data = docRef.get().subscribe((dat: any) => {
+      console.log(dat.docs);
     });
 
     console.log(data);
