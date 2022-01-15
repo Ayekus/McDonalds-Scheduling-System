@@ -49,6 +49,32 @@ export class DashboardComponent implements OnInit {
     },
   };
 
+  dateTouched = false;
+
+  schedule: any = {
+    BK: {
+      0: '',
+      1: '',
+      2: '',
+      3: '',
+      4: '',
+    },
+    BEV: {
+      0: '',
+      1: '',
+      2: '',
+      3: '',
+      4: '',
+    },
+    FC: {
+      0: '',
+      1: '',
+      2: '',
+      3: '',
+      4: '',
+    },
+  };
+
   ngOnInit(): void {
     this.userProfile = localStorage.getItem('userProfile');
     this.userProfile = JSON.parse(this.userProfile);
@@ -65,6 +91,7 @@ export class DashboardComponent implements OnInit {
   }
 
   refreshData() {
+    this.dateTouched = true;
     this.selectedDayOfWeek = moment(this.selected.startDate).format('dddd');
     this.selectedDayOfWeek = this.selectedDayOfWeek.toLowerCase();
     this.selectedDate = moment(this.selected.startDate).format('YYYY-MM-DD');
@@ -100,5 +127,9 @@ export class DashboardComponent implements OnInit {
 
       console.log(this.availability);
     });
+  }
+
+  setSchedule() {
+    console.log('set Schedule');
   }
 }
