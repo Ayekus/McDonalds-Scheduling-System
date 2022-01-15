@@ -1,1 +1,25 @@
-<p>employee-dashboard works!</p>
+<p>Dashboard</p>
+
+<input
+  type="text"
+  ngxDaterangepickerMd
+  [isInvalidDate]="isInvalidDate"
+  [locale]="locale"
+  [(ngModel)]="selected"
+  [singleDatePicker]="true"
+  [autoApply]="true"
+/>
+
+<button type="submit" (click)="refreshData()">View Date</button>
+
+<ng-container *ngIf="scheduledTime && dateTouched">
+  <p>Your Schedule</p>
+
+  <p>{{ userProfile.training }}</p>
+
+  <p>{{ scheduledTime }}</p>
+</ng-container>
+
+<ng-container *ngIf="!scheduledTime && dateTouched"
+  ><p>You are not scheduled to work on the selected date</p></ng-container
+>
