@@ -20,6 +20,7 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
 import { SetupProfileComponent } from './components/setup-profile/setup-profile.component';
 import { UpdateAvailabilityComponent } from './components/update-availability/update-availability.component';
 import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
+import { SignOutComponent } from './components/sign-out/sign-out.component';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { EmployeeDashboardComponent } from './components/employee-dashboard/empl
     SetupProfileComponent,
     UpdateAvailabilityComponent,
     EmployeeDashboardComponent,
+    SignOutComponent,
   ],
   imports: [
     BrowserModule,

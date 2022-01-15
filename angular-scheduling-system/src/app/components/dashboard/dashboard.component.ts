@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { AbstractControl, FormGroup, FormControl, Validators } from '@angular/forms';
 import * as moment from 'moment';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
@@ -91,6 +90,30 @@ export class DashboardComponent implements OnInit {
   }
 
   refreshData() {
+    this.availability = {
+      BK: {
+        0: [],
+        1: [],
+        2: [],
+        3: [],
+        4: [],
+      },
+      BEV: {
+        0: [],
+        1: [],
+        2: [],
+        3: [],
+        4: [],
+      },
+      FC: {
+        0: [],
+        1: [],
+        2: [],
+        3: [],
+        4: [],
+      },
+    };
+
     this.dateTouched = true;
     this.selectedDayOfWeek = moment(this.selected.startDate).format('dddd');
     this.selectedDayOfWeek = this.selectedDayOfWeek.toLowerCase();

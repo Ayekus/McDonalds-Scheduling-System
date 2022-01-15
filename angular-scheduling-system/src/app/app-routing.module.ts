@@ -11,11 +11,13 @@ import { VerifyEmailComponent } from './components/verify-email/verify-email.com
 import { SetupProfileComponent } from './components/setup-profile/setup-profile.component';
 import { UpdateAvailabilityComponent } from './components/update-availability/update-availability.component';
 import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
+import { SignOutComponent } from './components/sign-out/sign-out.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
   { path: 'sign-in', component: SignInComponent },
   { path: 'sign-up', component: SignUpComponent },
+  { path: 'sign-out', component: SignOutComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'employee-dashboard', component: EmployeeDashboardComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
