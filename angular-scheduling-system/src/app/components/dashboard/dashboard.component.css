@@ -11,3 +11,18 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
+
+table {
+  margin-right: auto;
+  margin-left: auto;
+  min-width: 75%;
+  width: 75%;
+  margin-top: 30px;
+}
+
+.button-container {
+  max-width: 75%;
+  text-align: center;
+  margin-left: auto;
+  margin-right: auto;
+}

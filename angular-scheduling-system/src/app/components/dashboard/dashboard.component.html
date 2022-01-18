@@ -16,223 +16,228 @@
   </div>
 </div>
 
-<table *ngIf="dateTouched">
-  <tr>
-    <td></td>
-    <td>BK</td>
-    <td>BEV</td>
-    <td>FC</td>
-  </tr>
-  <tr>
-    <td>5am - 9am</td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.BK[0]"
-        *ngIf="availability.BK[0].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.BK[0]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.BK[0].length == 0">No Coverage</span>
-    </td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.BEV[0]"
-        *ngIf="availability.BEV[0].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.BEV[0]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.BEV[0].length == 0">No Coverage</span>
-    </td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.FC[0]"
-        *ngIf="availability.FC[0].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.FC[0]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.FC[0].length == 0">No Coverage</span>
-    </td>
-  </tr>
-  <tr>
-    <td>9am - 1pm</td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.BK[1]"
-        *ngIf="availability.BK[1].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.BK[1]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.BK[1].length == 0">No Coverage</span>
-    </td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.BEV[1]"
-        *ngIf="availability.BEV[1].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.BEV[1]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.BEV[1].length == 0">No Coverage</span>
-    </td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.FC[1]"
-        *ngIf="availability.FC[1].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.FC[1]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.FC[1].length == 0">No Coverage</span>
-    </td>
-  </tr>
-  <tr>
-    <td>1pm - 5pm</td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.BK[2]"
-        *ngIf="availability.BK[2].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.BK[2]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.BK[2].length == 0">No Coverage</span>
-    </td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.BEV[2]"
-        *ngIf="availability.BEV[2].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.BEV[2]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.BEV[2].length == 0">No Coverage</span>
-    </td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.FC[2]"
-        *ngIf="availability.FC[2].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.FC[2]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.FC[2].length == 0">No Coverage</span>
-    </td>
-  </tr>
-  <tr>
-    <td>5pm - 9pm</td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.BK[3]"
-        *ngIf="availability.BK[3].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.BK[3]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.BK[3].length == 0">No Coverage</span>
-    </td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.BEV[3]"
-        *ngIf="availability.BEV[3].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.BEV[3]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.BEV[3].length == 0">No Coverage</span>
-    </td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.FC[3]"
-        *ngIf="availability.FC[3].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.FC[3]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.FC[3].length == 0">No Coverage</span>
-    </td>
-  </tr>
-  <tr>
-    <td>8pm - 11pm</td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.BK[4]"
-        *ngIf="availability.BK[4].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.BK[4]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.BK[4].length == 0">No Coverage</span>
-    </td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.BEV[4]"
-        *ngIf="availability.BEV[4].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.BEV[4]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.BEV[4].length == 0">No Coverage</span>
-    </td>
-    <td>
-      <select
-        class="form-control"
-        id="allocation-algorithm"
-        [(ngModel)]="schedule.FC[4]"
-        *ngIf="availability.FC[4].length > 0"
-      >
-        <ng-container *ngFor="let person of availability.FC[4]">
-          <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-        </ng-container>
-      </select>
-      <span *ngIf="availability.FC[2].length == 0">No Coverage</span>
-    </td>
-  </tr>
+<table *ngIf="dateTouched" class="table">
+  <thead class="table-dark">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">BK</th>
+      <th scope="col">BEV</th>
+      <th scope="col">FC</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>5am - 9am</td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.BK[0]"
+          *ngIf="availability.BK[0].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.BK[0]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.BK[0].length == 0">No Coverage</span>
+      </td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.BEV[0]"
+          *ngIf="availability.BEV[0].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.BEV[0]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.BEV[0].length == 0">No Coverage</span>
+      </td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.FC[0]"
+          *ngIf="availability.FC[0].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.FC[0]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.FC[0].length == 0">No Coverage</span>
+      </td>
+    </tr>
+    <tr>
+      <td>9am - 1pm</td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.BK[1]"
+          *ngIf="availability.BK[1].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.BK[1]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.BK[1].length == 0">No Coverage</span>
+      </td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.BEV[1]"
+          *ngIf="availability.BEV[1].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.BEV[1]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.BEV[1].length == 0">No Coverage</span>
+      </td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.FC[1]"
+          *ngIf="availability.FC[1].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.FC[1]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.FC[1].length == 0">No Coverage</span>
+      </td>
+    </tr>
+    <tr>
+      <td>1pm - 5pm</td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.BK[2]"
+          *ngIf="availability.BK[2].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.BK[2]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.BK[2].length == 0">No Coverage</span>
+      </td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.BEV[2]"
+          *ngIf="availability.BEV[2].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.BEV[2]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.BEV[2].length == 0">No Coverage</span>
+      </td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.FC[2]"
+          *ngIf="availability.FC[2].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.FC[2]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.FC[2].length == 0">No Coverage</span>
+      </td>
+    </tr>
+    <tr>
+      <td>5pm - 9pm</td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.BK[3]"
+          *ngIf="availability.BK[3].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.BK[3]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.BK[3].length == 0">No Coverage</span>
+      </td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.BEV[3]"
+          *ngIf="availability.BEV[3].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.BEV[3]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.BEV[3].length == 0">No Coverage</span>
+      </td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.FC[3]"
+          *ngIf="availability.FC[3].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.FC[3]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.FC[3].length == 0">No Coverage</span>
+      </td>
+    </tr>
+    <tr>
+      <td>8pm - 11pm</td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.BK[4]"
+          *ngIf="availability.BK[4].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.BK[4]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.BK[4].length == 0">No Coverage</span>
+      </td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.BEV[4]"
+          *ngIf="availability.BEV[4].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.BEV[4]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.BEV[4].length == 0">No Coverage</span>
+      </td>
+      <td>
+        <select
+          class="form-select"
+          id="allocation-algorithm"
+          [(ngModel)]="schedule.FC[4]"
+          *ngIf="availability.FC[4].length > 0"
+        >
+          <ng-container *ngFor="let person of availability.FC[4]">
+            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+          </ng-container>
+        </select>
+        <span *ngIf="availability.FC[2].length == 0">No Coverage</span>
+      </td>
+    </tr>
+  </tbody>
 </table>
-
-<button type="submit" (click)="setSchedule()" *ngIf="dateTouched">Save Schedule</button>
+<div class="button-container">
+  <button type="submit" (click)="setSchedule()" *ngIf="dateTouched" class="btn btn-warning">Save Schedule</button>
+</div>
