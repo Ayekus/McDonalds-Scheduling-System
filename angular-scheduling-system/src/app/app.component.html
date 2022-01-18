@@ -1,3 +1,43 @@
 <main>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">
+        <img src="/assets/logo.png" width="80px" />
+      </a>
+      <button
+        class="navbar-toggler"
+        type="button"
+        data-bs-toggle="collapse"
+        data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent"
+        aria-expanded="false"
+        aria-label="Toggle navigation"
+      >
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <button class="btn btn-outline-warning" type="submit" (click)="dashboard()">Dashboard</button>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn && isManager">
+            <button class="btn btn-outline-warning" type="submit" (click)="employeeList()">Employee List</button>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn && !isManager">
+            <button class="btn btn-outline-warning" type="submit" (click)="contactManager()">Contact Manager</button>
+          </li>
+          <li class="nav-item" *ngIf="isLoggedIn">
+            <button class="btn btn-outline-warning" type="submit" (click)="profile()">Profile</button>
+          </li>
+          <li class="nav-item" *ngIf="!isLoggedIn">
+            <button class="btn btn-outline-warning" type="submit" (click)="signIn()">Sign In</button>
+          </li>
+        </ul>
+        <form class="d-flex" *ngIf="isLoggedIn">
+          <button class="btn btn-outline-danger" type="submit" (click)="signOut()">Sign Out</button>
+        </form>
+      </div>
+    </div>
+  </nav>
   <router-outlet></router-outlet>
 </main>
