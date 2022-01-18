@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
+var en = moment().locale('en');
 
 @Component({
   selector: 'app-dashboard',
@@ -19,7 +20,7 @@ export class DashboardComponent implements OnInit {
     customRangeLabel: ' - ',
     daysOfWeek: moment.weekdaysMin(),
     monthNames: moment.monthsShort(),
-    firstDay: moment.localeData().firstDayOfWeek(),
+    firstDay: en.localeData().firstDayOfWeek(),
   };
 
   userProfile: any;
