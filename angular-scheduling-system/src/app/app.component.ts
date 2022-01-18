@@ -16,6 +16,8 @@ export class AppComponent {
       } else if (this.router.url == '/employee-dashboard') {
         this.isLoggedIn = true;
         this.isManager = false;
+      } else if (this.router.url == '/profile') {
+        this.isLoggedIn = true;
       } else {
         this.isLoggedIn = false;
         this.isManager = false;
@@ -49,14 +51,10 @@ export class AppComponent {
   }
 
   profile() {
-    console.log('works');
+    this.router.navigate(['/profile']);
   }
 
   employeeList() {
-    console.log('works');
-  }
-
-  contactManager() {
     console.log('works');
   }
 }

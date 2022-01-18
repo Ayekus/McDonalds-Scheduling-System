@@ -21,6 +21,7 @@ import { SetupProfileComponent } from './components/setup-profile/setup-profile.
 import { UpdateAvailabilityComponent } from './components/update-availability/update-availability.component';
 import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
 import { SignOutComponent } from './components/sign-out/sign-out.component';
+import { ProfileComponent } from './components/profile/profile.component';
 
 @NgModule({
   declarations: [
@@ -34,6 +35,7 @@ import { SignOutComponent } from './components/sign-out/sign-out.component';
     UpdateAvailabilityComponent,
     EmployeeDashboardComponent,
     SignOutComponent,
+    ProfileComponent,
   ],
   imports: [
     BrowserModule,
