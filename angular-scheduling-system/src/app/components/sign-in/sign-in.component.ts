@@ -37,9 +37,8 @@ export class SignInComponent implements OnInit {
           .then((doc) => {
             console.log(doc.data());
             localStorage.setItem('userProfile', JSON.stringify(doc.data()));
+            this.router.navigate(['/dashboard']);
           });
-
-        this.router.navigate(['/dashboard']);
       });
     }
   }
