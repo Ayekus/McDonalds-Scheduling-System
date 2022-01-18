@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { AbstractControl, FormGroup, FormControl, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-update-availability',
@@ -8,8 +9,9 @@ import { AbstractControl, FormGroup, FormControl, Validators } from '@angular/fo
   styleUrls: ['./update-availability.component.css'],
 })
 export class UpdateAvailabilityComponent implements OnInit {
-  constructor(public afFirestore: AngularFirestore) {}
+  constructor(public afFirestore: AngularFirestore, private router: Router) {}
 
+  success = false;
   shifts: any;
   mondayForm = new FormGroup({
     selectedTime: new FormControl(''),
@@ -72,6 +74,13 @@ export class UpdateAvailabilityComponent implements OnInit {
           saturday: this.saturday['selectedTime'].value,
           sunday: this.sunday['selectedTime'].value,
         },
+      })
+      .then(() => {
+        this.success = true;
+        setTimeout(() => {
+          this.success = false;
+          this.router.navigate(['/dashboard']);
+        }, 5000);
       });
   }
 

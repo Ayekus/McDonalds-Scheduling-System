@@ -1,22 +1,35 @@
-<p>Setup Profile</p>
-<form [formGroup]="setupProfileForm" (ngSubmit)="setupUser()">
-  <input type="text" id="firstName" placeholder="First Name" formControlName="firstName" />
-  <p *ngIf="form['firstName'].invalid && form['firstName'].touched">Error in first name field</p>
-  <br />
-  <input type="text" id="lastName" placeholder="Last Name" formControlName="lastName" />
-  <p *ngIf="form['lastName'].invalid && form['lastName'].touched">Error in last name field</p>
-  <br />
-  <input type="text" id="employeeID" placeholder="Employee ID" formControlName="employeeID" />
-  <p *ngIf="form['employeeID'].invalid && form['employeeID'].touched">Error in employee ID field</p>
-  <br />
+<div class="card-container">
+  <div class="card">
+    <div class="card-body">
+      <h1>Setup Profile</h1>
+      <form [formGroup]="setupProfileForm" (ngSubmit)="setupUser()">
+        <input type="text" id="firstName" placeholder="First Name" formControlName="firstName" class="form-control" />
+        <p *ngIf="form['firstName'].invalid && form['firstName'].touched">Error in first name field</p>
+        <br />
+        <input type="text" id="lastName" placeholder="Last Name" formControlName="lastName" class="form-control" />
+        <p *ngIf="form['lastName'].invalid && form['lastName'].touched">Error in last name field</p>
+        <br />
+        <input
+          type="text"
+          id="employeeID"
+          placeholder="Employee ID"
+          formControlName="employeeID"
+          class="form-control"
+        />
+        <p *ngIf="form['employeeID'].invalid && form['employeeID'].touched">Error in employee ID field</p>
+        <br />
 
-  <input type="radio" value="BEV" formControlName="training" />
-  <label for="trainingBEV"> BEV </label><br />
-  <input type="radio" value="FC" formControlName="training" />
-  <label for="trainingFC"> FC </label><br />
-  <input type="radio" value="BK" formControlName="training" />
-  <label for="trainingBK"> BK </label>
+        <input type="radio" value="BEV" formControlName="training" class="form-check-input" />
+        <label for="trainingBEV" class="form-check-label"> BEV </label><br />
+        <input type="radio" value="FC" formControlName="training" class="form-check-input" />
+        <label for="trainingFC" class="form-check-label"> FC </label><br />
+        <input type="radio" value="BK" formControlName="training" class="form-check-input" />
+        <label for="trainingBK" class="form-check-label"> BK </label>
 
-  <br />
-  <button type="submit">Set Up Profile</button>
-</form>
+        <br />
+        <br />
+        <button type="submit" class="btn btn-warning">Set Up Profile</button>
+      </form>
+    </div>
+  </div>
+</div>

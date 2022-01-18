@@ -36,6 +36,10 @@ export class AppComponent {
     this.router.navigate(['/sign-out']);
   }
 
+  signUp() {
+    this.router.navigate(['/sign-up']);
+  }
+
   signIn() {
     this.router.navigate(['/sign-in']);
   }

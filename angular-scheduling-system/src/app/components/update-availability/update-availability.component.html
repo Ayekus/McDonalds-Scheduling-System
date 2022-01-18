@@ -1,60 +1,81 @@
-<p>Set Availability</p>
-<br />
-<p>Monday</p>
-<form [formGroup]="mondayForm">
-  <ng-container *ngFor="let shift of shifts; let i = index">
-    <input type="radio" [value]="i" formControlName="selectedTime" />
-    <label for="selectedTime"> {{ shift }} </label><br />
-  </ng-container>
-</form>
-<br /><br />
-<p>Tuesday</p>
-<form [formGroup]="tuesdayForm">
-  <ng-container *ngFor="let shift of shifts; let i = index">
-    <input type="radio" [value]="i" formControlName="selectedTime" />
-    <label for="selectedTime"> {{ shift }} </label><br />
-  </ng-container>
-</form>
-<br /><br />
-<p>Wednesday</p>
-<form [formGroup]="wednesdayForm">
-  <ng-container *ngFor="let shift of shifts; let i = index">
-    <input type="radio" [value]="i" formControlName="selectedTime" />
-    <label for="selectedTime"> {{ shift }} </label><br />
-  </ng-container>
-</form>
-<br /><br />
-<p>Thursday</p>
-<form [formGroup]="thursdayForm">
-  <ng-container *ngFor="let shift of shifts; let i = index">
-    <input type="radio" [value]="i" formControlName="selectedTime" />
-    <label for="selectedTime"> {{ shift }} </label><br />
-  </ng-container>
-</form>
-<br /><br />
-<p>Friday</p>
-<form [formGroup]="fridayForm">
-  <ng-container *ngFor="let shift of shifts; let i = index">
-    <input type="radio" [value]="i" formControlName="selectedTime" />
-    <label for="selectedTime"> {{ shift }} </label><br />
-  </ng-container>
-</form>
-<br /><br />
-<p>Saturday</p>
-<form [formGroup]="saturdayForm">
-  <ng-container *ngFor="let shift of shifts; let i = index">
-    <input type="radio" [value]="i" formControlName="selectedTime" />
-    <label for="selectedTime"> {{ shift }} </label><br />
-  </ng-container>
-</form>
-<br /><br />
-<p>Sunday</p>
-<form [formGroup]="sundayForm">
-  <ng-container *ngFor="let shift of shifts; let i = index">
-    <input type="radio" [value]="i" formControlName="selectedTime" />
-    <label for="selectedTime"> {{ shift }} </label><br />
-  </ng-container>
-</form>
+<div class="card-container">
+  <div class="card">
+    <div class="card-body">
+      <h1>Set Availability</h1>
 
-<br />
-<button type="submit" (click)="setAvailability()">Set Availability</button>
+      <div class="alert alert-success" role="alert" *ngIf="success">
+        Availability Saved Successfully! Redirecting to Dashboard...
+      </div>
+
+      <div class="row">
+        <div class="col-md-3">
+          <p>Monday</p>
+          <form [formGroup]="mondayForm">
+            <ng-container *ngFor="let shift of shifts; let i = index">
+              <input type="radio" [value]="i" formControlName="selectedTime" />
+              <label for="selectedTime"> {{ shift }} </label><br />
+            </ng-container>
+          </form>
+        </div>
+        <div class="col-md-3">
+          <p>Tuesday</p>
+          <form [formGroup]="tuesdayForm">
+            <ng-container *ngFor="let shift of shifts; let i = index">
+              <input type="radio" [value]="i" formControlName="selectedTime" />
+              <label for="selectedTime"> {{ shift }} </label><br />
+            </ng-container>
+          </form>
+        </div>
+        <div class="col-md-3">
+          <p>Wednesday</p>
+          <form [formGroup]="wednesdayForm">
+            <ng-container *ngFor="let shift of shifts; let i = index">
+              <input type="radio" [value]="i" formControlName="selectedTime" />
+              <label for="selectedTime"> {{ shift }} </label><br />
+            </ng-container>
+          </form>
+        </div>
+        <div class="col-md-3">
+          <p>Thursday</p>
+          <form [formGroup]="thursdayForm">
+            <ng-container *ngFor="let shift of shifts; let i = index">
+              <input type="radio" [value]="i" formControlName="selectedTime" />
+              <label for="selectedTime"> {{ shift }} </label><br />
+            </ng-container>
+          </form>
+        </div>
+      </div>
+      <div class="row mt-5 mb-5">
+        <div class="col-md-3">
+          <p>Friday</p>
+          <form [formGroup]="fridayForm">
+            <ng-container *ngFor="let shift of shifts; let i = index">
+              <input type="radio" [value]="i" formControlName="selectedTime" />
+              <label for="selectedTime"> {{ shift }} </label><br />
+            </ng-container>
+          </form>
+        </div>
+        <div class="col-md-3">
+          <p>Saturday</p>
+          <form [formGroup]="saturdayForm">
+            <ng-container *ngFor="let shift of shifts; let i = index">
+              <input type="radio" [value]="i" formControlName="selectedTime" />
+              <label for="selectedTime"> {{ shift }} </label><br />
+            </ng-container>
+          </form>
+        </div>
+        <div class="col-md-3">
+          <p>Sunday</p>
+          <form [formGroup]="sundayForm">
+            <ng-container *ngFor="let shift of shifts; let i = index">
+              <input type="radio" [value]="i" formControlName="selectedTime" />
+              <label for="selectedTime"> {{ shift }} </label><br />
+            </ng-container>
+          </form>
+        </div>
+      </div>
+
+      <button type="submit" (click)="setAvailability()" class="btn btn-warning">Set Availability</button>
+    </div>
+  </div>
+</div>

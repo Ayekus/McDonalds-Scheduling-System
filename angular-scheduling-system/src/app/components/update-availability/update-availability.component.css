@@ -1,0 +1,30 @@
+.card {
+  width: 900px;
+  border: 2px solid #000;
+}
+
+.btn {
+  width: 100%;
+}
+
+h1 {
+  font-size: 22px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 25px;
+}
+
+.card-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 35px;
+}
+
+p {
+  font-size: 16px;
+  font-weight: 700;
+}
+
+.alert {
+  text-align: center;
+}

@@ -64,7 +64,15 @@ export class SetupProfileComponent implements OnInit {
             availability: { monday: '0', tuesday: '1', wednesday: '2' },
           })
           .then((res: any) => {
-            this.router.navigate(['/update-availability']);
+            this.afFirestore
+              .collection('usersCollection')
+              .doc(user.uid)
+              .ref.get()
+              .then((doc) => {
+                console.log(doc.data());
+                localStorage.setItem('userProfile', JSON.stringify(doc.data()));
+                this.router.navigate(['/update-availability']);
+              });
           });
       }
     }
