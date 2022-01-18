@@ -24,6 +24,7 @@ export class DashboardComponent implements OnInit {
   };
 
   userProfile: any;
+  success = false;
 
   availability: any = {
     BK: {
@@ -221,6 +222,13 @@ export class DashboardComponent implements OnInit {
           3: this.schedule.FC[3],
           4: this.schedule.FC[4],
         },
+      })
+      .then((val) => {
+        console.log(val);
+        this.success = true;
+        setTimeout(() => {
+          this.success = false;
+        }, 3500);
       });
   }
 }
