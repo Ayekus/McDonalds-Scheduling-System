@@ -11,3 +11,20 @@ h1 {
   margin-left: auto;
   margin-right: auto;
 }
+
+.card {
+  max-width: 50%;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.card-body {
+  color: #fff;
+}
+
+.alert {
+  max-width: 25%;
+  text-align: center;
+  margin-right: auto;
+  margin-left: auto;
+}

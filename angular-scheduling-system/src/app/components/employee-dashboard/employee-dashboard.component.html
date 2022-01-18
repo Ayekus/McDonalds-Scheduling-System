@@ -16,14 +16,23 @@
   </div>
 </div>
 
+<div class="alert alert-danger" role="alert" *ngIf="!dateIsValid">Please Select a Date</div>
+
 <ng-container *ngIf="scheduledTime && dateTouched && isWorking">
-  <p>Your Schedule</p>
-
-  <p>{{ userProfile.training }}</p>
-
-  <p>{{ scheduledTime }}</p>
+  <div class="card">
+    <h5 class="card-header bg-warning text-center">Your Schedule for {{ selectedDate | date: 'MMM d, y' }}</h5>
+    <div class="card-body bg-dark text-center">
+      <h5 class="card-title">Shift Type: {{ userProfile.training }}</h5>
+      <h5 class="card-title">Scheduled Time: {{ scheduledTime }}</h5>
+    </div>
+  </div>
 </ng-container>
 
 <ng-container *ngIf="!isWorking && dateTouched">
-  <p>You are not scheduled to work on the selected date</p>
+  <div class="card">
+    <h5 class="card-header bg-warning text-center">Your Schedule for {{ selectedDate | date: 'MMM d, y' }}</h5>
+    <div class="card-body bg-dark text-center">
+      <h5 class="card-title">You are not scheduled to work on this date</h5>
+    </div>
+  </div>
 </ng-container>
