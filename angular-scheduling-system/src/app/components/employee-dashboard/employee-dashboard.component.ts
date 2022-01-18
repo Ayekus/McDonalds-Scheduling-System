@@ -23,6 +23,7 @@ export class EmployeeDashboardComponent implements OnInit {
 
   userProfile: any;
   dateTouched = false;
+  isWorking: any;
 
   scheduledTime: any;
 
@@ -44,7 +45,7 @@ export class EmployeeDashboardComponent implements OnInit {
     console.log(this.userProfile);
     const userUid = this.userProfile.uid;
     const training = this.userProfile.training;
-
+    this.scheduledTime = undefined;
     this.dateTouched = true;
     this.selectedDate = moment(this.selected.startDate).format('YYYY-MM-DD');
 
@@ -81,8 +82,16 @@ export class EmployeeDashboardComponent implements OnInit {
                   this.scheduledTime = '8:00pm - 11:00pm';
                   break;
               }
+              this.isWorking = true;
             }
           }
+          if (!this.scheduledTime) {
+            console.log('here');
+            this.isWorking = false;
+          }
+        } else {
+          console.log('here2');
+          this.isWorking = false;
         }
       });
   }

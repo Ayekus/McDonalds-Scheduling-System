@@ -1,18 +1,22 @@
-<p>Dashboard</p>
+<h1>Dashboard</h1>
 
-<input
-  type="text"
-  ngxDaterangepickerMd
-  [isInvalidDate]="isInvalidDate"
-  [locale]="locale"
-  [(ngModel)]="selected"
-  [singleDatePicker]="true"
-  [autoApply]="true"
-/>
+<div class="input-group mb-3">
+  <input
+    type="text"
+    class="form-control"
+    ngxDaterangepickerMd
+    [locale]="locale"
+    [(ngModel)]="selected"
+    [singleDatePicker]="true"
+    [autoApply]="true"
+    placeholder="Select a Date"
+  />
+  <div class="input-group-append">
+    <button type="submit" (click)="refreshData()" class="btn btn-warning"><i class="icofont-circled-right"></i></button>
+  </div>
+</div>
 
-<button type="submit" (click)="refreshData()">View Date</button>
-
-<ng-container *ngIf="scheduledTime && dateTouched">
+<ng-container *ngIf="scheduledTime && dateTouched && isWorking">
   <p>Your Schedule</p>
 
   <p>{{ userProfile.training }}</p>
@@ -20,6 +24,6 @@
   <p>{{ scheduledTime }}</p>
 </ng-container>
 
-<ng-container *ngIf="!scheduledTime && dateTouched"
-  ><p>You are not scheduled to work on the selected date</p></ng-container
->
+<ng-container *ngIf="!isWorking && dateTouched">
+  <p>You are not scheduled to work on the selected date</p>
+</ng-container>
