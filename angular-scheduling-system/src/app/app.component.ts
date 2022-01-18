@@ -10,7 +10,7 @@ export class AppComponent {
   constructor(private router: Router, private route: ActivatedRoute) {
     this.router.events.subscribe((res) => {
       console.log(this.router.url, 'Current URL');
-      if (this.router.url == '/dashboard') {
+      if (this.router.url == '/dashboard' || this.router.url == '/employee-list') {
         this.isLoggedIn = true;
         this.isManager = true;
       } else if (this.router.url == '/employee-dashboard') {
@@ -55,6 +55,6 @@ export class AppComponent {
   }
 
   employeeList() {
-    console.log('works');
+    this.router.navigate(['/employee-list']);
   }
 }

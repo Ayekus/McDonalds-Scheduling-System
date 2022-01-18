@@ -13,6 +13,7 @@ import { UpdateAvailabilityComponent } from './components/update-availability/up
 import { EmployeeDashboardComponent } from './components/employee-dashboard/employee-dashboard.component';
 import { SignOutComponent } from './components/sign-out/sign-out.component';
 import { ProfileComponent } from './components/profile/profile.component';
+import { EmployeeListComponent } from './components/employee-list/employee-list.component';
 
 const routes: Routes = [
   { path: '', redirectTo: '/sign-in', pathMatch: 'full' },
@@ -21,6 +22,7 @@ const routes: Routes = [
   { path: 'sign-out', component: SignOutComponent },
   { path: 'dashboard', component: DashboardComponent },
   { path: 'employee-dashboard', component: EmployeeDashboardComponent },
+  { path: 'employee-list', component: EmployeeListComponent },
   { path: 'forgot-password', component: ForgotPasswordComponent },
   { path: 'verify-email-address', component: VerifyEmailComponent },
   { path: 'setup-profile', component: SetupProfileComponent },
