@@ -50,6 +50,7 @@ export class SetupProfileComponent implements OnInit {
         const user: any = JSON.parse(userInfo);
 
         console.log('uid: ', user.uid);
+        console.log('user: ', user);
 
         this.afFirestore
           .collection('usersCollection')
@@ -61,6 +62,7 @@ export class SetupProfileComponent implements OnInit {
             employeeID: employeeID,
             training: training,
             isManager: false,
+            emailAddress: user.email,
             availability: { monday: '0', tuesday: '1', wednesday: '2' },
           })
           .then((res: any) => {
