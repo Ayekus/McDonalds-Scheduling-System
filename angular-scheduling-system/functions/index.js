@@ -17,7 +17,7 @@ exports.sendEmailMessage = functions.firestore
     functions.logger.log(data);
 
     const msg = {
-      to: 'aekus.trehan@gmail.com',
+      to: data.to,
       from: 'aekus.trehan@gmail.com',
       templateId: TEMPLATE_ID,
       dynamic_template_data: {

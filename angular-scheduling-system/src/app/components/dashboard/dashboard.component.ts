@@ -233,8 +233,17 @@ export class DashboardComponent implements OnInit {
       });
   }
 
-  sendEmail(date: any, shiftType: any, shiftTime: any) {
+  sendEmail(date: any, shiftType: any, shiftTime: any, employeeList: any) {
     console.log(date, shiftType, shiftTime);
+    console.log(employeeList);
+
+    var arrayOfElements = [];
+    for (let i = 0; i < employeeList.length; i++) {
+      arrayOfElements.push(employeeList[i].emailAddress);
+    }
+
+    console.log(arrayOfElements);
+
     const formattedDate = moment(date).format('MMM D, YYYY');
     console.log(formattedDate);
 
@@ -264,6 +273,7 @@ export class DashboardComponent implements OnInit {
         shiftDate: formattedDate,
         shiftTime: formattedShiftTime,
         shiftType,
+        to: arrayOfElements,
       })
       .then((val) => {
         console.log(val);
