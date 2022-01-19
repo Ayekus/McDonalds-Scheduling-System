@@ -17,7 +17,15 @@ export class SignInComponent implements OnInit {
     password: new FormControl('', Validators.required),
   });
 
-  ngOnInit(): void {}
+  userProfile: any;
+
+  ngOnInit(): void {
+    this.userProfile = localStorage.getItem('userProfile');
+    this.userProfile = JSON.parse(this.userProfile);
+    if (this.userProfile) {
+      this.router.navigate(['/dashboard']);
+    }
+  }
 
   async signIn() {
     if (this.form['email'].valid && this.form['password'].valid) {
