@@ -43,6 +43,10 @@ export class SignInComponent implements OnInit {
     }
   }
 
+  forgotPassword() {
+    this.router.navigate(['/forgot-password']);
+  }
+
   //convenience getter for easy access to form fields
   get form(): { [key: string]: AbstractControl } {
     return this.signInForm.controls;

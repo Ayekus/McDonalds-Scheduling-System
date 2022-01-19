@@ -20,7 +20,6 @@ export class AppComponent {
         this.isLoggedIn = true;
       } else if (this.router.url == '/update-availability') {
         this.isLoggedIn = true;
-        this.isManager = false;
       } else {
         this.isLoggedIn = false;
         this.isManager = false;
