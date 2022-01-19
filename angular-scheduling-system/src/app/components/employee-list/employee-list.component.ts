@@ -25,7 +25,17 @@ export class EmployeeListComponent implements OnInit {
             arrayOfElements.push(dat.docs[i].data());
           }
           console.log(arrayOfElements);
-          this.employeeList = arrayOfElements;
+          this.employeeList = arrayOfElements.sort((a, b) => {
+            let fa = a.firstName.toLowerCase(),
+              fb = b.firstName.toLowerCase();
+            if (fa < fb) {
+              return -1;
+            }
+            if (fa > fb) {
+              return 1;
+            }
+            return 0;
+          });
           this.hasEmployees = true;
         } else {
           this.hasEmployees = false;
