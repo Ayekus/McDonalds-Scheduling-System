@@ -18,6 +18,9 @@ export class AppComponent {
         this.isManager = false;
       } else if (this.router.url == '/profile') {
         this.isLoggedIn = true;
+      } else if (this.router.url == '/update-availability') {
+        this.isLoggedIn = true;
+        this.isManager = false;
       } else {
         this.isLoggedIn = false;
         this.isManager = false;
@@ -48,6 +51,10 @@ export class AppComponent {
 
   dashboard() {
     this.router.navigate(['/dashboard']);
+  }
+
+  updateAvailability() {
+    this.router.navigate(['/update-availability']);
   }
 
   profile() {
