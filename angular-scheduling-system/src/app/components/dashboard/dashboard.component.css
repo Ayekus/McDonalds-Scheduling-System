@@ -33,3 +33,7 @@ table {
   margin-right: auto;
   margin-left: auto;
 }
+
+.table-cell {
+  max-width: 100%;
+}

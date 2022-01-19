@@ -18,6 +18,8 @@
 
 <div class="alert alert-success" role="alert" *ngIf="success">Schedule Saved Successfully!</div>
 
+<div class="alert alert-success" role="alert" *ngIf="emailSuccess">Email Sent Successfully!</div>
+
 <table *ngIf="dateTouched" class="table">
   <thead class="table-dark">
     <tr>
@@ -31,16 +33,25 @@
     <tr>
       <td>5am - 9am</td>
       <td>
-        <select
-          class="form-select"
-          id="allocation-algorithm"
-          [(ngModel)]="schedule.BK[0]"
-          *ngIf="availability.BK[0].length > 0"
-        >
-          <ng-container *ngFor="let person of availability.BK[0]">
-            <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
-          </ng-container>
-        </select>
+        <div class="input-group table-cell mb-3">
+          <select
+            class="form-select"
+            id="allocation-algorithm"
+            [(ngModel)]="schedule.BK[0]"
+            *ngIf="availability.BK[0].length > 0"
+          >
+            <ng-container *ngFor="let person of availability.BK[0]">
+              <option [value]="person.uid">{{ person.firstName }} {{ person.lastName }}</option>
+            </ng-container>
+          </select>
+          <button
+            class="btn btn-danger send-email"
+            (click)="sendEmail(selectedDate, 'BK', 0)"
+            *ngIf="availability.BK[0].length > 0"
+          >
+            <i class="icofont-email"></i>
+          </button>
+        </div>
         <span *ngIf="availability.BK[0].length == 0">No Coverage</span>
       </td>
       <td>

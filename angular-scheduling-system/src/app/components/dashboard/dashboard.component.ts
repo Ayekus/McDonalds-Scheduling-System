@@ -25,6 +25,7 @@ export class DashboardComponent implements OnInit {
 
   userProfile: any;
   success = false;
+  emailSuccess = false;
 
   availability: any = {
     BK: {
@@ -228,6 +229,47 @@ export class DashboardComponent implements OnInit {
         this.success = true;
         setTimeout(() => {
           this.success = false;
+        }, 3500);
+      });
+  }
+
+  sendEmail(date: any, shiftType: any, shiftTime: any) {
+    console.log(date, shiftType, shiftTime);
+    const formattedDate = moment(date).format('MMM D, YYYY');
+    console.log(formattedDate);
+
+    var formattedShiftTime: any;
+
+    switch (shiftTime) {
+      case 0:
+        formattedShiftTime = '5:00am - 9:00am';
+        break;
+      case 1:
+        formattedShiftTime = '9:00am - 1:00pm';
+        break;
+      case 2:
+        formattedShiftTime = '1:00pm - 5:00pm';
+        break;
+      case 3:
+        formattedShiftTime = '5:00pm - 9:00pm';
+        break;
+      case 4:
+        formattedShiftTime = '8:00pm - 11:00pm';
+        break;
+    }
+
+    this.afFirestore
+      .collection('contactCollection')
+      .add({
+        shiftDate: formattedDate,
+        shiftTime: formattedShiftTime,
+        shiftType,
+      })
+      .then((val) => {
+        console.log(val);
+        this.emailSuccess = true;
+        setTimeout(() => {
+          this.emailSuccess = false;
         }, 3500);
       });
   }
