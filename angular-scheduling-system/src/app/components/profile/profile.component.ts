@@ -1,3 +1,5 @@
+// This is the typescript for the profile page - gets information from firebase and displays it using the html formatting
+
 import { Component, OnInit } from '@angular/core';
 
 @Component({

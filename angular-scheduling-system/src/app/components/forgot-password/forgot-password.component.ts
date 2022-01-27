@@ -1,3 +1,5 @@
+// This is the typescript for the forgot password page - just a form where you put in email and firebase sends the reset password email
+
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, FormControl, Validators } from '@angular/forms';
 import { AngularFireAuth } from '@angular/fire/compat/auth';

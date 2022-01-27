@@ -1,3 +1,5 @@
+// This is the typescript for the manager dashboard, all functionality within the dashboard is here - getting employee availability based on date + time + shift type, main routing system (after sign-in - in init), sending emails from click of button (in html file)
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';

@@ -1,3 +1,5 @@
+// This is the typescript for the employee dashboard - getting employee shifts from firebase based on weather they are scheduled on selected date, main routing system (after sign-in - in init), sending emails from click of button (in html file)
+
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import * as moment from 'moment';

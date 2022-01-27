@@ -1,3 +1,5 @@
+// This is the typescript for the employee list page - gets all employee information from firebase and displays it in alphabetic order
+
 import { Component, OnInit } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 import { Router } from '@angular/router';

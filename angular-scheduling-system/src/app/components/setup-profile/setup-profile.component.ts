@@ -1,3 +1,5 @@
+// This is the typescript for the setup profile form - when signing up, this will send all information entered to firebase
+
 import { Component, OnInit } from '@angular/core';
 import { AbstractControl, FormGroup, FormControl, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
